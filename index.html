@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            boxShadow: {
+              netflix: '0 35px 120px -40px rgba(0,0,0,0.8)',
+            },
+            backgroundImage: {
+              'hero-gradient': 'linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%)',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .movie-card:hover .movie-overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .movie-card img {
+        transition: transform 0.35s ease;
+      }
+      .movie-card:hover img {
+        transform: scale(1.05);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[#141414] text-white selection:bg-red-600 selection:text-white">
+    <div class="min-h-screen bg-[#141414]">
+      <header class="sticky top-0 z-50 bg-black/70 backdrop-blur-lg">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 text-sm text-white/90 md:px-8">
+          <div class="flex items-center gap-6">
+            <a href="#home" class="text-2xl font-extrabold text-red-600">NETFLIX</a>
+            <nav class="hidden gap-5 md:flex">
+              <a href="#home" class="hover:text-white">Home</a>
+              <a href="#trending" class="hover:text-white">Trending</a>
+              <a href="#top" class="hover:text-white">Top Picks</a>
+              <a href="#genres" class="hover:text-white">Genres</a>
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <button class="hidden rounded bg-white/10 px-3 py-2 text-white transition hover:bg-white/20 md:inline-flex">Kids</button>
+            <button class="rounded-full bg-white/10 p-2 transition hover:bg-white/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/nflx.png" alt="Profile" class="h-10 w-10 rounded-full object-cover" />
+          </div>
+        </div>
+      </header>
+
+      <main id="home" class="relative overflow-hidden">
+        <section class="relative h-[88vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1600&q=80');">
+          <div class="absolute inset-0 bg-black/60"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black"></div>
+          <div class="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-20 text-white md:px-8">
+            <div class="max-w-3xl space-y-6">
+              <p class="inline-flex items-center rounded-full bg-red-600/90 px-4 py-2 text-sm uppercase tracking-[0.25em] text-white shadow-lg shadow-red-600/20">
+                Streaming Now
+              </p>
+              <h1 class="text-4xl font-black leading-tight md:text-6xl">Watch the latest original movies and series in one place.</h1>
+              <p class="text-sm text-white/80 md:text-base">
+                Enjoy curated recommendations, seamless playback, and iconic titles across every genre — all from the Netflix clone experience.
+              </p>
+              <div class="flex flex-col gap-3 sm:flex-row">
+                <button class="inline-flex items-center justify-center gap-2 rounded bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-white/90 md:px-8 md:text-base">
+                  <span>Play</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+                <button class="inline-flex items-center justify-center gap-2 rounded border border-white/30 bg-black/40 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10 md:px-8 md:text-base">
+                  More Info
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="genres" class="mx-auto max-w-7xl px-5 py-10 md:px-8">
+          <h2 class="mb-4 text-xl font-semibold text-white">Browse by category</h2>
+          <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+            <button class="rounded-full bg-white/10 px-5 py-3 text-sm text-white transition hover:bg-white/20">Action</button>
+            <button class="rounded-full bg-white/10 px-5 py-3 text-sm text-white transition hover:bg-white/20">Drama</button>
+            <button class="rounded-full bg-white/10 px-5 py-3 text-sm text-white transition hover:bg-white/20">Comedy</button>
+            <button class="rounded-full bg-white/10 px-5 py-3 text-sm text-white transition hover:bg-white/20">Thriller</button>
+            <button class="rounded-full bg-white/10 px-5 py-3 text-sm text-white transition hover:bg-white/20">Sci-Fi</button>
+            <button class="rounded-full bg-white/10 px-5 py-3 text-sm text-white transition hover:bg-white/20">Documentary</button>
+            <button class="rounded-full bg-white/10 px-5 py-3 text-sm text-white transition hover:bg-white/20">Romance</button>
+          </div>
+        </section>
+
+        <section id="continue" class="space-y-6 border-t border-white/10 bg-[#0f0f0f]/90 px-5 py-10 md:px-8">
+          <div class="max-w-7xl">
+            <div class="mb-4 flex items-center justify-between">
+              <h2 class="text-2xl font-semibold">Continue Watching</h2>
+              <span class="text-sm text-white/60">Pick up from where you left off</span>
+            </div>
+            <div id="continue-row" class="grid auto-cols-fr gap-4 overflow-x-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            </div>
+          </div>
+        </section>
+
+        <section id="trending" class="space-y-6 px-5 py-10 md:px-8">
+          <div class="max-w-7xl">
+            <div class="mb-4 flex items-center justify-between">
+              <h2 class="text-2xl font-semibold">Trending Now</h2>
+              <span class="text-sm text-white/60">What viewers are watching</span>
+            </div>
+            <div id="trending-row" class="grid auto-cols-fr gap-4 overflow-x-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            </div>
+          </div>
+        </section>
+
+        <section id="top" class="bg-[#141414] px-5 py-10 md:px-8">
+          <div class="max-w-7xl space-y-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-2xl font-semibold">Top Picks for You</h2>
+                <p class="text-sm text-white/60">Hand-picked selections based on your mood.</p>
+              </div>
+              <button class="rounded-full bg-red-600 px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] transition hover:bg-red-700">See All</button>
+            </div>
+            <div id="top-row" class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-white/10 bg-[#090909] px-5 py-8 text-white/70 md:px-8">
+        <div class="mx-auto max-w-7xl space-y-3 text-sm">
+          <p>Netflix Clone built with HTML, Tailwind CSS, and JavaScript.</p>
+          <p>Browse top movies, series, and original content in a polished, responsive homepage layout.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const movieData = {
+        continue: [
+          { title: 'Space Frontier', subtitle: 'S1 • Episode 4', image: 'https://images.unsplash.com/photo-1598899134739-57ef2b3b4eec?auto=format&fit=crop&w=800&q=80' },
+          { title: 'City of Secrets', subtitle: 'S2 • Episode 8', image: 'https://images.unsplash.com/photo-1517604931442-6f36a0801fff?auto=format&fit=crop&w=800&q=80' },
+          { title: 'Frozen Dawn', subtitle: 'Movie • 1h 47m', image: 'https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=800&q=80' },
+        ],
+        trending: [
+          { title: 'Midnight Chase', image: 'https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=800&q=80' },
+          { title: 'Neon Underworld', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80' },
+          { title: 'Hidden Agenda', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80' },
+          { title: 'Beyond the Reef', image: 'https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?auto=format&fit=crop&w=800&q=80' },
+          { title: 'Rogue Station', image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80' },
+        ],
+        top: [
+          { title: 'Eclipse', description: 'A thriller that keeps you on the edge.', image: 'https://images.unsplash.com/photo-1517516749142-345c467c65f4?auto=format&fit=crop&w=900&q=80' },
+          { title: 'Afterglow', description: 'A cinematic romance with stunning visuals.', image: 'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=900&q=80' },
+          { title: 'Cyber Pulse', description: 'High-tech action and dramatic stakes.', image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80' },
+        ],
+      };
+
+      function renderRow(containerId, items, options = {}) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        items.forEach(item => {
+          const card = document.createElement('article');
+          card.className = 'movie-card group relative overflow-hidden rounded-xl bg-[#181818] shadow-netflix transition hover:-translate-y-1';
+          card.innerHTML = `
+            <img src="${item.image}" alt="${item.title}" class="h-52 w-full object-cover" />
+            <div class="movie-overlay absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent px-4 pb-4 pt-24 opacity-0 transition duration-300">
+              <h3 class="text-lg font-semibold">${item.title}</h3>
+              ${item.subtitle ? `<p class="mt-1 text-sm text-white/70">${item.subtitle}</p>` : ''}
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      function renderTopCards() {
+        const container = document.getElementById('top-row');
+        container.innerHTML = '';
+        movieData.top.forEach(item => {
+          const card = document.createElement('article');
+          card.className = 'group overflow-hidden rounded-3xl bg-[#181818] shadow-netflix transition hover:-translate-y-1';
+          card.innerHTML = `
+            <div class="relative overflow-hidden rounded-3xl">
+              <img src="${item.image}" alt="${item.title}" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+            </div>
+            <div class="space-y-3 p-5">
+              <div class="flex items-center justify-between text-sm text-white/70">
+                <span class="rounded-full bg-red-600/90 px-3 py-1 uppercase tracking-[0.11em]">New</span>
+                <span>98% Match</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">${item.title}</h3>
+                <p class="mt-2 text-sm text-white/70">${item.description}</p>
+              </div>
+              <button class="w-full rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/90">Watch Now</button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      renderRow('continue-row', movieData.continue);
+      renderRow('trending-row', movieData.trending);
+      renderTopCards();
+    </script>
+  </body>
+</html>
